@@ -17,38 +17,38 @@ const routes: Routes = [
       },
       {
         path: 'home',
-        loadChildren: './home/home.module#HomeModule'
+        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
       },
       {
         path: 'products',
-        loadChildren: './product/product.module#ProductModule'
+        loadChildren: () => import('./product/product.module').then(m => m.ProductModule)
       },
       {
         path: 'contact',
-        loadChildren: './contact/contact.module#ContactModule'
+        loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
       },
       {
         path: 'order',
-        loadChildren: './order/order.module#OrderModule'
+        loadChildren: () => import('./order/order.module').then(m => m.OrderModule)
       },
       {
         path: 'demo',
-        loadChildren: './demo/demo.module#DemoModule'
+        loadChildren: () => import('./demo/demo.module').then(m => m.DemoModule)
       },
     ]
   },
   {
     path: 'admin',
     canActivate: [AdminGuard],
-    loadChildren: './admin/admin.module#AdminModule'
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
   {
     path: 'auth',
-    loadChildren: './auth/auth.module#AuthModule'
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: '**',
-    loadChildren: './page-not-found/page-not-found.module#PageNotFoundModule'
+    loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
   },
 ];
 
